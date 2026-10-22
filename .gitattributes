@@ -1,17 +1,6 @@
 # ---------------------------------------------------------------------------
 # Line-ending policy: LF everywhere in the repository.
 #
-# The imported seed scripts arrived mixed — 01..04 (HR) were LF, 05..08
-# (BikeStores, from sqlservertutorial.net) were CRLF. Two concrete failures
-# that causes:
-#   * a .sh file with CRLF dies inside the container with the famously
-#     unhelpful "\r: command not found"
-#   * a batch separator written as "GO\r" is not recognised as GO by every
-#     sqlcmd version, so a script silently runs as one giant batch
-#
-# The desktop Dockerfile worked around this with `sed -i 's/\r$//'`.
-# Normalising here removes the need for that entirely.
-#
 # Students on Windows: Git converts to LF on commit and leaves LF in the
 # working tree. VS Code is pinned to LF in devcontainer.json. Nothing to do.
 # ---------------------------------------------------------------------------

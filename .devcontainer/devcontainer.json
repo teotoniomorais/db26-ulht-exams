@@ -17,7 +17,7 @@
     }
   },
 
-  // SQL Server needs ~2 GB just to start; 8 GB keeps BikeStores DML comfortable.
+  // SQL Server needs ~2 GB just to start; 8 GB keeps DML comfortable.
   "hostRequirements": {
     "cpus": 2,
     "memory": "8gb",
@@ -43,18 +43,6 @@
             "encrypt": "Mandatory",
             "trustServerCertificate": true,
             "profileName": "ULHT_DB26 (HR + Scott)"
-          },
-          {
-            "server": "db,1433",
-            "database": "BikeStores",
-            "authenticationType": "SqlLogin",
-            "user": "sa",
-            "password": "",
-            "emptyPasswordInput": false,
-            "savePassword": false,
-            "encrypt": "Mandatory",
-            "trustServerCertificate": true,
-            "profileName": "BikeStores"
           }
         ]
       }

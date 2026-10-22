@@ -45,7 +45,7 @@ if ! grep -q 'DB25 aliases' "$BASHRC" 2>/dev/null; then
 # --- DB25 aliases ---
 export PATH="$PATH:/opt/mssql-tools18/bin"
 # sql            -> interactive sqlcmd session against the class server
-# sql -d BikeStores  -> ...against a specific database
+# sql -d ULHT_DB26  -> ...against a specific database
 alias sql='sqlcmd -S "$MSSQL_HOST,1433" -U sa -P "$MSSQL_SA_PASSWORD" -C -b'
 alias db-reset='bash "$(git rev-parse --show-toplevel)/db/reset.sh"'
 alias db-seed='bash "$(git rev-parse --show-toplevel)/db/seed.sh"'

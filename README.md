@@ -8,8 +8,7 @@ Two databases are created for you automatically:
 
 | Database | Schemas | Content |
 |---|---|---|
-| `ULHT_DB26` | `HR`, `Scott` | Classic HR / Scott teaching schemas — 11 tables, 10 foreign keys |
-| `BikeStores` | `production`, `sales` | Larger sample database, ~9 000 rows |
+| `ULHT_DB26` | `(empty)` | Seed database for the exam, no initial content |
 
 ---
 
@@ -80,7 +79,7 @@ SELECT TOP 5 * FROM HR.EMPLOYEES;
 If you don't have the Terminal open, open it with **Terminal → New Terminal**. Then run:
 ```bash
 sql                       # interactive session
-sql -d BikeStores         # against a specific database
+sql -d ULHT_DB26         # against a specific database
 sql -Q "SELECT TOP 5 * FROM HR.EMPLOYEES"
 sql -i exercises/aula03.sql
 ```

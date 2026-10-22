@@ -24,7 +24,7 @@ c_info() { printf '\033[1;36m[seed]\033[0m %s\n' "$*"; }
 c_err()  { printf '\033[1;31m[seed]\033[0m %s\n' "$*" >&2; }
 
 # -f 65001 tells sqlcmd the input files are UTF-8. Several scripts contain
-# accented Portuguese text (and a © in the BikeStores headers); without this
+# accented Portuguese text (and a © in headers); without this
 # they are read as the default codepage and the characters are mangled.
 sql() { sqlcmd -S "$HOST" -U sa -P "$PASS" -C -b -f 65001 "$@"; }
 
@@ -69,4 +69,4 @@ c_info "Seed complete in ${ELAPSED}s."
 sql -Q "SET NOCOUNT ON;
         SELECT name AS [database], state_desc AS [state]
         FROM sys.databases
-        WHERE name IN ('ULHT_DB26','BikeStores');"
+        WHERE name IN ('ULHT_DB26');"

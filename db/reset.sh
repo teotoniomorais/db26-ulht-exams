@@ -25,14 +25,14 @@ c_info() { printf '\033[1;36m[reset]\033[0m %s\n' "$*"; }
 c_warn() { printf '\033[1;33m[reset]\033[0m %s\n' "$*"; }
 
 if [ "${1:-}" != "--force" ]; then
-  c_warn "This DROPS ULHT_DB26 and BikeStores. All your changes will be lost."
+  c_warn "This DROPS ULHT_DB26. All your changes will be lost."
   read -r -p "Type 'yes' to continue: " reply
   [ "$reply" = "yes" ] || { c_info "Cancelled."; exit 0; }
 fi
 
 sql() { sqlcmd -S "$HOST" -U sa -P "$PASS" -C -b "$@"; }
 
-for db in ULHT_DB26 BikeStores; do
+for db in ULHT_DB26; do
   c_info "Dropping $db (if present) ..."
   # SINGLE_USER + ROLLBACK IMMEDIATE kicks off any open session — otherwise
   # the drop blocks forever on the student's own idle query window.

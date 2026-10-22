@@ -19,7 +19,7 @@ for _ in $(seq 1 30); do
 done
 
 MISSING=$(sqlcmd -S "${MSSQL_HOST:-db},1433" -U sa -P "$MSSQL_SA_PASSWORD" -C -h -1 -W -l 10 \
-  -Q "SET NOCOUNT ON; SELECT COUNT(*) FROM sys.databases WHERE name IN ('ULHT_DB26','BikeStores');" \
+  -Q "SET NOCOUNT ON; SELECT COUNT(*) FROM sys.databases WHERE name IN ('ULHT_DB26');" \
   2>/dev/null | tr -d '[:space:]' || echo "0")
 
 if [ "$MISSING" != "2" ]; then
